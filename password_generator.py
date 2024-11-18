@@ -12,7 +12,9 @@ def gerar_senha(tamanho, usar_maiusculo, usar_numeros, usar_especiais):
     senha = "".join(random.choice(caracteres) for i in range(tamanho))
     return senha
 
-def gerar_log():
+def gerar_log(tamanho, usar_maiusculo, usar_numeros, usar_especiais):
+    senha = gerar_senha(tamanho, usar_maiusculo, usar_numeros, usar_especiais)
+    
     if os.path.exists("log.csv"):
         with open("log.csv", "r", newline="") as csvfile:
             reader = csv.reader(csvfile)
@@ -43,7 +45,7 @@ def main():
             \n{"=" * largura_decoradora}"""
         )
         
-        gerar_log()
+        gerar_log(tamanho, usar_maiusculo, usar_numeros, usar_especiais)
 
 main()
 
