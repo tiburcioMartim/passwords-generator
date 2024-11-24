@@ -13,8 +13,6 @@ def gerar_senha(tamanho, usar_maiusculo, usar_numeros, usar_especiais):
     return senha
 
 def gerar_log(tamanho, usar_maiusculo, usar_numeros, usar_especiais):
-    senha = gerar_senha(tamanho, usar_maiusculo, usar_numeros, usar_especiais)
-    
     if os.path.exists("log.csv"):
         with open("log.csv", "r", newline="") as csvfile:
             reader = csv.reader(csvfile)
@@ -47,5 +45,6 @@ def main():
         
         gerar_log(tamanho, usar_maiusculo, usar_numeros, usar_especiais)
 
-main()
+if (__name__ == "__main__"):
+    main()
 
